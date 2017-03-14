@@ -1,7 +1,10 @@
+<?php
+#require_once 'include/database.php';
+?>                                                                                                            
 <html>
  <head>
    <meta charset="utf-8">
-   <title> Kалькулятор </title>
+   <title> Kалькулятор +</title>
  </head>
     <body>
 <form>
