@@ -16,20 +16,20 @@ $pass="1";
 <option value="-">минус</option>
 <option value="*">умножить</option>
 </select></p>
-    <p><button type="submit">Вычислить</button> <input  type="text" name="rezultat"></p>
-</form>
- </body>
- <?php
+<button type="submit">Вычислить</button>
+<?php
 $chislo1=$_GET['chislo1'];
 $chislo2=$_GET['chislo2'];
 $znaki=$_GET['znaki'];
 $rezultat=$_GET['rezultat'];
    switch ($znaki) {
     case '-':
-        $oper=$chislo1 ."-". $chislo2. '='. $chislo1 - $chislo2;
+        $rezultat=$chislo1 - $chislo2;
+        $oper=$chislo1 ."-". $chislo2. '='. $rezultat;
     break;
     case '*':
-        $oper=$chislo1 ."*". $chislo2. '='. $chislo1 * $chislo2;
+        $rezultat=$chislo1 * $chislo2;
+        $oper=$chislo1 ."*". $chislo2. '='. $rezultat;
             break;
 } 
 try {
@@ -39,13 +39,16 @@ try {
 
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
-
     $dbh = null;
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";
     die();
 }
  ?>
+ <input type="text" name="" value="<?php echo $oper; ?>" />
+</form>
+ </body>
  </html>
+
 
 
