@@ -9,8 +9,8 @@ $pass="1";
  </head>
     <body>
 <form>
-<p><b> введите первое число...</b> <input type="text" name="chislo1"> <Br> </p>
-<p><b> введите второе число... </b> <input type="text" name="chislo2"> <Br> </p> 
+<p><b> введите первое число...</b> <input type="text" autocomplete="off" name="chislo1" required> <Br> </p>
+<p><b> введите второе число... </b> <input type="text" autocomplete="off" name="chislo2" required> <Br> </p> 
 <p><b>Выберите действие</b>
 <select name="znaki"> 
 <option value="-">минус</option>
@@ -36,7 +36,7 @@ try {
     $dbh = new PDO('mysql:host=localhost;dbname=patya', $user, $pass);
 
     $sql = 'insert into colculator (operation, data_vip) value ("'.$oper.'", "'.date("Y-m-d H:i:s").'")';
-
+    
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
     $dbh = null;
@@ -45,8 +45,8 @@ try {
     die();
 }
  ?>
- <input type="text" name="" value="<?php echo $oper; ?>" />
-</form>
+ <input type="text" autocomplete="off" name="" value="<?php echo $oper; ?>" /></Br></br>
+ </form>
  </body>
  </html>
 
