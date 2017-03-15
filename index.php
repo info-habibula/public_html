@@ -1,5 +1,6 @@
 <?php
-#require_once 'include/database.php';
+$user="root";
+$pass="1";
 ?>                                                                                                            
 <html>
  <head>
@@ -15,7 +16,7 @@
 <option value="-">минус</option>
 <option value="*">умножить</option>
 </select></p>
- 		<p><button type="submit">Вычислить</button> <input  type="text" name="rezultat"></p>
+    <p><button type="submit">Вычислить</button> <input  type="text" name="rezultat"></p>
 </form>
  </body>
  <?php
@@ -24,12 +25,27 @@ $chislo2=$_GET['chislo2'];
 $znaki=$_GET['znaki'];
 $rezultat=$_GET['rezultat'];
    switch ($znaki) {
-   	case '-':
-       echo $chislo1 - $chislo2;
-   	break;
-   	case '*':
-       echo $chislo1 * $chislo2;
-   	break;
+    case '-':
+        $oper=$chislo1 ."-". $chislo2. '='. $chislo1 - $chislo2;
+    break;
+    case '*':
+        $oper=$chislo1 ."*". $chislo2. '='. $chislo1 * $chislo2;
+            break;
 } 
+try {
+    $dbh = new PDO('mysql:host=localhost;dbname=patya', $user, $pass);
+
+    $sql = 'insert into colculator (operation, data_vip) value ("'.$oper.'", "'.date("Y-m-d H:i:s").'")';
+
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute();
+
+    $dbh = null;
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+}
  ?>
  </html>
+
+

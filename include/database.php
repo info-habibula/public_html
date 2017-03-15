@@ -1,7 +1,5 @@
 <?php
-$link=mysqli_connect('localhost','root00','1','patya');
-if (mysqli_connect_errno()) {
-	echo 'Ошибка в подключении к б/д ('.mysqli_connect_errno().'):'.mysqli_connect_error();
-    exit();
-}
+$user="root";
+$pass="1";
+$dbh = new PDO('mysql:host=localhost;dbname=patya', $user, $pass);
 ?>
