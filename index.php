@@ -8,6 +8,7 @@ $user="root";
 $pass="1";
 ?>                                                                                                            
 <html>
+ 
  <head>
    <meta charset="utf-8">
    <title> Kалькулятор +</title>
