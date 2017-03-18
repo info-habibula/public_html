@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-#ini_set('display_errors', 1);
+ini_set('display_errors', 1);
 ini_set('error_append_string', 'Биля :(');
 ini_set('log_errors', 'On');
 ini_set('error_log', '/var/log/php_errors.log');
@@ -11,7 +11,7 @@ $pass="1";
  
  <head>
    <meta charset="utf-8">
-   <title> Kалькулятор +</title>
+   <title> Вход</title>
    <style type="text/css">
   body {
     background: #F5F5F5;
@@ -33,8 +33,8 @@ $pass="1";
             <p><label for="user_pass" >Пароль<br>
             <input class="input" id="password" name="password"size="20"
             type="password" value="" required></label></p> 
-            <button type="submit">Войти</button>
-            <p class="regtext">Еще не зарегистрированы?<a href= "register.php">Регистрация</a>!</p>
+            <button type="submit" style="width:100Px;height:25Px">Войти</button>
+            <p class="regtext">Еще не зарегистрированы?<a href= "reg_user.php"">Регистрация</a>!</p>
         </form></center>
 
 
@@ -46,7 +46,7 @@ $pass="1";
 <option value="-">минус</option>
 <option value="*">умножить</option>
 </select></p>
-<button type="submit">Вычислить</button>-->
+<button type="submit">Вычислить</button>
     <?php
         $chislo1=$_GET['chislo1'];
         $chislo2=$_GET['chislo2'];
@@ -92,7 +92,7 @@ $pass="1";
         }
     ?>
  <input type="text" autocomplete="off" name="" value="<?php echo $oper; ?>" /></Br></br>
- </form>
+ </form>-->
  </body>
  </html>
 
